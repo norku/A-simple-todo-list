@@ -35,6 +35,15 @@ header {
 
 #textfield {
   width: 150px;
+  border: none;
+  border: 1px dashed rgb(173, 125, 249);
+}
+
+#submitb {
+  background-color: rgb(173, 125, 249);
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
 }
 
 .item {
@@ -55,4 +64,19 @@ header {
   margin: 5px;
   padding: 10px;
   min-width: 100px;
+}
+
+.remove,
+.edit {
+  border: none;
+  border-radius: 7px;
+  background-color: #1E90FF;
+  margin: 2px;
+}
+
+@media only screen and (max-width: 600px){
+  header {
+    margin: 0 15%;
+    font-size: 75%;
+  }
 }
