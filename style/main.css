@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+header {
+
+}
+
 #errorMessage {
   background-color: rgba(255,255,0,0.5);
   height: 75px;
@@ -10,4 +14,24 @@ body {
   margin-left: 15%;
   margin-right: 15%;
   display: none;
+}
+
+.item {
+  background-color: #B0C4DE;
+  display: inline-block;
+  border: 1px solid #1E90FF;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 100px;
+}
+
+.clearedItem {
+  background-color: #F5F5F5;
+  display: inline-block;
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 100px;
 }
