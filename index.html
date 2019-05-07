@@ -7,19 +7,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
+  <div id="errorMessage"></div>
+  <div id="around">
   <header>
-    <div id="errorMessage"></div>
 
     <h1>Things needing to be done</h1>
 
     <form id="addThings">
-      <input type="text" placeholder="Add something that needs to be done" name="title">
+      <input type="text" placeholder="What needs to be done" name="title" id="textfield">
       <button type="submit" name="submit" value="submit">submit</button>
     </form>
   </header>
   <div class="main">
     <ul id="thingsToDo"></ul>
   </div>
+</div>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
