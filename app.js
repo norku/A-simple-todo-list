@@ -1,55 +1,59 @@
 $(document).ready(() => {
-  function appendToLI() {
-    $("li")
-      .append("Done: " + '<input type="checkbox" class="finished"><br>')
-      .append('<button class="edit">Edit</button>')
-      .append('<button class="delete">Delete</button></li>');
-  }
 
   const itemList = [];
+
+//Checkbox functionality-------------------------------
+  function checkedBox () {
+    $('.cbx').on('change', (e) => {
+      const checkbox = e.target;
+      const checked = checkbox.checked;
+      const listItem = checkbox.parentNode;
+
+      if (checked) {
+        listItem.className = 'clearedItem';
+      } else {
+        listItem.className = 'item';
+      }
+    });
+  }
+
+// Button functionality---------------------------------
+  function clickHappens () {
+    $('ul').click( (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        const button = e.target;
+        const li = button.parentNode;
+        const ul = li.parentNode;
+        const action = button.textContent;
+
+        if (action === 'remove') {
+          li.remove();
+        }
+      }
+    });
+  }
+
   //Add things to the to-do list
   $("#addThings").submit(e => {
     e.preventDefault();
-
-    // const $text = $('input').val();
-
-    //   if ($text == '') {
-    //     $("#errorMessage").slideDown(200, function() {
-    //       //if text field is empty an error message slides down, delays and slides up
-    //       $("#errorMessage").text("That field can't be submitted empty!")
-    //                         .delay(3000)
-    //                         .slideUp(300);
-    //     });
-    //   } else {
-    //   $('input').val('');
-    //  $("ul").append('<li class="item">'  + $text + '<br>');
-    //   itemList.push($text);
-    //   appendToLI();
-    //   }
-    //   console.log(itemList);
-    // });
-
-    const $text = $("input").val();
-    if ($text == "") {
+    const $text = $('input').val();
+    if ($text == '') {
       $("#errorMessage").slideDown(200, function() {
         //if text field is empty an error message slides down, delays and slides up
-        $("#errorMessage")
-          .text("That field can't be empty!")
-          .delay(3000)
-          .slideUp(300);
+        $("#errorMessage").text("That field can't be submitted empty!")
+                          .delay(3000)
+                          .slideUp(300);
       });
     } else {
-      $("input").val("");
       itemList.push($text);
+      $("ul").append(
+        '<li class="item">' + $('input').val() + '<br>Done: <input type="checkbox" class="cbx"><br><button class="edit">Edit</button><button class="delete">Delete</button></li>'
+        );
+      $('input').val('');
+
     }
     console.log(itemList);
+    checkedBox();
+    clickHappens();
   });
-
-  if (itemList.length > 0) {
-    for (let i = 0; i < itemList.length; i++) {
-      $(".main").append(itemList[i]);
-      // $('ul').append('<li class="item">' + itemList[i] + '<br>');
-      // appendToLI();
-    }
-  }
 });
